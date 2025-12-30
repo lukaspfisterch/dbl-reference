@@ -1,4 +1,5 @@
 # dbl-reference
+[![tests](https://github.com/lukaspfisterch/dbl-reference/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/lukaspfisterch/dbl-reference/actions/workflows/tests.yml)
 
 Reference-grade implementation of **Deterministic Boundary Layers (DBL)**.
 
