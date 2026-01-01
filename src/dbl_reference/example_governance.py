@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+"""NON_NORMATIVE: test fixtures only."""
+
 from dataclasses import dataclass
 from typing import Any, Mapping, Protocol
 

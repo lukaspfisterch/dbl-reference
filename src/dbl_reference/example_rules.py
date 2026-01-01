@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+"""NON_NORMATIVE: test fixtures only."""
+
 from typing import Any
 
 

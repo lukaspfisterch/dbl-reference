@@ -6,9 +6,9 @@ import sys
 from typing import Any, Optional
 
 from .boundary import Boundary
-from .governance import ExampleGovernance
+from .example_governance import ExampleGovernance
 from .replay import replay_normative, to_replay_view
-from .rules import AcceptAll
+from .example_rules import AcceptAll
 from .runner import AdmissionRejected, DblRunner
 
 RC_OK = 0

@@ -1,8 +1,8 @@
 import pytest
 
 from dbl_reference.boundary import Boundary
-from dbl_reference.governance import ExampleGovernance
-from dbl_reference.rules import AcceptAll
+from dbl_reference.example_governance import ExampleGovernance
+from dbl_reference.example_rules import AcceptAll
 from dbl_reference.runner import DecisionPrereqError, DblRunner
 
 

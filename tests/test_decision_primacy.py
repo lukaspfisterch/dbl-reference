@@ -2,8 +2,8 @@ from dbl_reference.model import EventKind
 from dbl_reference.replay import replay_normative, to_replay_view
 from dbl_reference.runner import DblRunner
 from dbl_reference.boundary import Boundary
-from dbl_reference.governance import ExampleGovernance
-from dbl_reference.rules import AcceptAll
+from dbl_reference.example_governance import ExampleGovernance
+from dbl_reference.example_rules import AcceptAll
 
 
 def test_only_decision_affects_normative_state():

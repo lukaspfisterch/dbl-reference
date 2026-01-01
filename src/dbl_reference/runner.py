@@ -4,7 +4,7 @@ from dataclasses import asdict
 from typing import Any, Optional
 
 from .boundary import Boundary
-from .governance import Governance
+from .example_governance import Governance
 from .model import DblEvent, EventKind, IntentPayload
 from .stream import EventStream
 
