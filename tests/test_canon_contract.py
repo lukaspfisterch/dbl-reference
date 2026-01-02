@@ -1,6 +1,6 @@
 import math
 import pytest
-from dbl_reference.canon import CanonError, canon_bytes
+from ensdg.canon import CanonError, canon_bytes
 
 
 def test_rejects_float():

@@ -1,5 +1,5 @@
-from dbl_reference.boundary import Boundary
-from dbl_reference.example_rules import AcceptAll
+from ensdg.boundary import Boundary
+from ensdg.example_rules import AcceptAll
 
 
 def test_boundary_config_hash_is_stable():

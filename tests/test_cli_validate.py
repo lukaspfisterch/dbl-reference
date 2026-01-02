@@ -37,7 +37,7 @@ def test_validate_mode_reports_ok(tmp_path: Path) -> None:
     path.write_text("\n".join(json.dumps(r, ensure_ascii=True) for r in rows) + "\n", encoding="utf-8")
 
     result = subprocess.run(
-        [sys.executable, "-m", "dbl_reference.cli", "--mode", "validate", "--input", str(path)],
+        [sys.executable, "-m", "ensdg.cli", "--mode", "validate", "--input", str(path)],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         env=_env_with_src_path(),
@@ -62,7 +62,7 @@ def test_validate_mode_errors_on_invariant(tmp_path: Path) -> None:
     path.write_text("\n".join(json.dumps(r, ensure_ascii=True) for r in rows) + "\n", encoding="utf-8")
 
     result = subprocess.run(
-        [sys.executable, "-m", "dbl_reference.cli", "--mode", "validate", "--input", str(path)],
+        [sys.executable, "-m", "ensdg.cli", "--mode", "validate", "--input", str(path)],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         env=_env_with_src_path(),
@@ -104,7 +104,7 @@ def test_validate_mode_errors_on_replay(tmp_path: Path) -> None:
     path.write_text("\n".join(json.dumps(r, ensure_ascii=True) for r in rows) + "\n", encoding="utf-8")
 
     result = subprocess.run(
-        [sys.executable, "-m", "dbl_reference.cli", "--mode", "validate", "--input", str(path)],
+        [sys.executable, "-m", "ensdg.cli", "--mode", "validate", "--input", str(path)],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         env=_env_with_src_path(),
@@ -141,7 +141,7 @@ def test_validate_mode_can_emit_digest(tmp_path: Path) -> None:
         [
             sys.executable,
             "-m",
-            "dbl_reference.cli",
+            "ensdg.cli",
             "--mode",
             "validate",
             "--input",

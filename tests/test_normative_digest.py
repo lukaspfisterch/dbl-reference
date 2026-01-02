@@ -1,5 +1,5 @@
-from dbl_reference.model import DblEvent, EventKind
-from dbl_reference.replay import normative_digest, to_replay_view
+from ensdg.model import DblEvent, EventKind
+from ensdg.replay import normative_digest, to_replay_view
 
 
 def test_normative_digest_ignores_execution_and_proof():

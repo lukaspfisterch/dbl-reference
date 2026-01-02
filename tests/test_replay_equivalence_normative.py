@@ -1,5 +1,5 @@
-from dbl_reference.replay import replay_normative, to_replay_view
-from dbl_reference.model import DblEvent, EventKind
+from ensdg.replay import replay_normative, to_replay_view
+from ensdg.model import DblEvent, EventKind
 
 
 def test_replay_ignores_execution_and_proof():

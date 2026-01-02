@@ -20,7 +20,7 @@ RC_ADMISSION = 6
 
 
 def main(argv: Optional[list[str]] = None) -> int:
-    p = argparse.ArgumentParser(prog="dbl-reference")
+    p = argparse.ArgumentParser(prog="ensdg")
     p.add_argument("--policy-version", type=int, default=1)
     p.add_argument("--mode", choices=("demo", "replay", "validate"), default="demo")
     p.add_argument("--input", default="-")

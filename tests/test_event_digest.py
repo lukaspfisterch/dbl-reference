@@ -1,5 +1,5 @@
-from dbl_reference.digest import event_digest, v_digest
-from dbl_reference.model import DblEvent, EventKind
+from ensdg.digest import event_digest, v_digest
+from ensdg.model import DblEvent, EventKind
 
 
 def test_event_digest_ignores_observational_fields():

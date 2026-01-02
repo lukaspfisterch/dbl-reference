@@ -1,9 +1,9 @@
 import pytest
 
-from dbl_reference.boundary import Boundary
-from dbl_reference.example_governance import ExampleGovernance
-from dbl_reference.example_rules import AcceptAll
-from dbl_reference.runner import DecisionPrereqError, DblRunner
+from ensdg.boundary import Boundary
+from ensdg.example_governance import ExampleGovernance
+from ensdg.example_rules import AcceptAll
+from ensdg.runner import DecisionPrereqError, DblRunner
 
 
 def test_multiple_decisions_are_rejected():

@@ -1,10 +1,12 @@
-# dbl-reference
-[![tests](https://github.com/lukaspfisterch/dbl-reference/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/lukaspfisterch/dbl-reference/actions/workflows/tests.yml)
+# ENSdg
+[![tests](https://github.com/lukaspfisterch/ensdg/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/lukaspfisterch/ensdg/actions/workflows/tests.yml)
 
-**Reference-grade implementation and specification anchor for Deterministic Boundary Layers (DBL).**
+**Executable Normative Semantics for Deterministic Governance**
 
-`dbl-reference` exists to make the DBL papers *executable, testable, and falsifiable*.
+`ensdg` exists to make the DBL papers *executable, testable, and falsifiable*.
 It defines the **normative upper bound** of the DBL model in code.
+ENSdg was previously developed under the working name "dbl-reference".
+The rename reflects the stabilized scope and role as a semantic anchor.
 
 This repository is **not** a product, framework, SDK, or integration layer.
 
@@ -12,7 +14,7 @@ This repository is **not** a product, framework, SDK, or integration layer.
 
 ## What this repository is
 
-`dbl-reference` serves exactly three purposes:
+`ensdg` serves exactly three purposes:
 
 1. **Executable reference model**  
    A minimal implementation of the DBL axioms with no discretionary behavior.
@@ -23,7 +25,7 @@ This repository is **not** a product, framework, SDK, or integration layer.
 3. **Semantic anchor**  
    A fixed point that prevents drift as higher-level tooling evolves.
 
-If another implementation disagrees with `dbl-reference`, **either the implementation is wrong or the papers are**.
+If another implementation disagrees with `ensdg`, **either the implementation is wrong or the papers are**.
 
 ---
 
@@ -49,7 +51,7 @@ For the precise boundary of what is normative vs observational, see
 
 ## What this repository is not
 
-`dbl-reference` intentionally does **not** provide:
+`ensdg` intentionally does **not** provide:
 
 - Policy languages or DSLs
 - Workflow engines or orchestration
@@ -65,21 +67,21 @@ The `example_*` modules are test fixtures only.
 
 ## Position in the DBL ecosystem
 
-`dbl-reference` is intentionally small and strict.
+`ensdg` is intentionally small and strict.
 Other repositories may build *around* it without extending its scope.
 
 - **dbl-core / kernel-logic**  
   Define execution primitives and invariants.  
-  `dbl-reference` assumes these as given.
+  `ensdg` assumes these as given.
 
 - **dbl-vlog**  
   Event stream and persistence abstractions.  
-  `dbl-reference` aligns conceptually but does not provide storage backends.
+  `ensdg` aligns conceptually but does not provide storage backends.
 
 - **dbl-main**  
   Integration and composition layer.  
   Real-world wiring, adapters, and domain runners belong there.  
-  `dbl-main` SHOULD be validated against `dbl-reference`.
+  `dbl-main` SHOULD be validated against `ensdg`.
 
 Educational repositories (`dbl-tutorial`, `dbl-simple`) may trade strictness for clarity,
 but MUST NOT weaken DBL invariants.
@@ -109,9 +111,9 @@ This repository answers one question only:
 Use this repo to validate an external DBL system:
 
 1. Export the system's event stream as JSONL.
-2. Run `dbl-reference --mode validate` to check invariants.
-3. Run `dbl-reference --mode replay` to compute the normative projection.
-4. Run `dbl-reference --mode replay --digest` to compute the normative digest.
+2. Run `ensdg --mode validate` to check invariants.
+3. Run `ensdg --mode replay` to compute the normative projection.
+4. Run `ensdg --mode replay --digest` to compute the normative digest.
 5. Compare projections/digests across runs to confirm stability.
 
 ## CLI contract (normative)

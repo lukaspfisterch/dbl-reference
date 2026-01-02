@@ -26,8 +26,8 @@ Learn: normativity is anchored in DECISION
 ## CLI commands
 
 ```bash
-dbl-reference --mode validate --input stream.jsonl
-dbl-reference --mode replay --digest --input stream.jsonl
+ensdg --mode validate --input stream.jsonl
+ensdg --mode replay --digest --input stream.jsonl
 ```
 
 ## Exit codes
@@ -41,4 +41,4 @@ dbl-reference --mode replay --digest --input stream.jsonl
 ## Why this exists
 
 This loop makes external validation reproducible and comparable across systems
-without changing dbl-reference or introducing new semantics.
+without changing ensdg or introducing new semantics.

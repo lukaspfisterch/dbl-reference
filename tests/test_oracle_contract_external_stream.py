@@ -1,9 +1,9 @@
 import json
 from pathlib import Path
 
-from dbl_reference.invariants import validate_stream
-from dbl_reference.model import DblEvent, EventKind
-from dbl_reference.replay import normative_digest, to_replay_view
+from ensdg.invariants import validate_stream
+from ensdg.model import DblEvent, EventKind
+from ensdg.replay import normative_digest, to_replay_view
 
 
 FIXTURE = Path(__file__).parent / "fixtures" / "external_stream.jsonl"

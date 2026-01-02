@@ -8,7 +8,7 @@ conflict-resolution rule.
 1. DBL papers - axioms, model, terminology
 2. kernel-logic - execution substrate and primitives
 3. dbl-core - event model, canonicalization, digest rules, invariants
-4. dbl-reference - governance oracle and replay semantics only
+4. ensdg - governance oracle and replay semantics only
 5. Project-level contracts - wire formats, HTTP surfaces, storage
 
 ## Conflict resolution
@@ -17,9 +17,9 @@ If two sources conflict, the higher authority always wins. Any change that
 introduces a conflict is invalid by definition.
 
 Explicit rule:
-- dbl-reference MUST NOT define new event kinds, canonicalization rules, or
+- ensdg MUST NOT define new event kinds, canonicalization rules, or
   digest rules.
-- dbl-reference only interprets and validates semantics defined in dbl-core and
+- ensdg only interprets and validates semantics defined in dbl-core and
   the papers.
 
 ## Observational non-interference

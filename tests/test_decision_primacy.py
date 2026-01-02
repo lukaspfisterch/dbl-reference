@@ -1,9 +1,9 @@
-from dbl_reference.model import EventKind
-from dbl_reference.replay import replay_normative, to_replay_view
-from dbl_reference.runner import DblRunner
-from dbl_reference.boundary import Boundary
-from dbl_reference.example_governance import ExampleGovernance
-from dbl_reference.example_rules import AcceptAll
+from ensdg.model import EventKind
+from ensdg.replay import replay_normative, to_replay_view
+from ensdg.runner import DblRunner
+from ensdg.boundary import Boundary
+from ensdg.example_governance import ExampleGovernance
+from ensdg.example_rules import AcceptAll
 
 
 def test_only_decision_affects_normative_state():

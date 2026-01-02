@@ -1,9 +1,9 @@
 import pytest
 
-from dbl_reference.boundary import Boundary
-from dbl_reference.example_governance import ExampleGovernance
-from dbl_reference.example_rules import AcceptAll
-from dbl_reference.runner import DecisionPrereqError, DblRunner
+from ensdg.boundary import Boundary
+from ensdg.example_governance import ExampleGovernance
+from ensdg.example_rules import AcceptAll
+from ensdg.runner import DecisionPrereqError, DblRunner
 
 
 def test_decide_requires_prior_intent():
@@ -27,8 +27,8 @@ def test_proof_requires_prior_decision():
 
 
 def test_validate_stream_requires_intent_schema():
-    from dbl_reference.invariants import InvariantError, validate_stream
-    from dbl_reference.model import DblEvent, EventKind
+    from ensdg.invariants import InvariantError, validate_stream
+    from ensdg.model import DblEvent, EventKind
 
     events = [DblEvent(1, EventKind.INTENT, "c", {"boundary": {"boundary_config_hash": "sha256:" + "0" * 64}})]
     with pytest.raises(InvariantError, match="INTENT payload missing required keys"):
@@ -36,8 +36,8 @@ def test_validate_stream_requires_intent_schema():
 
 
 def test_validate_stream_requires_decision_schema():
-    from dbl_reference.invariants import InvariantError, validate_stream
-    from dbl_reference.model import DblEvent, EventKind
+    from ensdg.invariants import InvariantError, validate_stream
+    from ensdg.model import DblEvent, EventKind
 
     events = [
         DblEvent(1, EventKind.INTENT, "c", {"authoritative_input": {"x": 1}, "boundary": {"boundary_config_hash": "sha256:" + "0" * 64}}),

@@ -23,7 +23,7 @@ def test_replay_parse_error_has_rc_and_no_stdout(tmp_path: Path) -> None:
     path.write_text("{not json}\n", encoding="utf-8")
 
     r = subprocess.run(
-        [sys.executable, "-m", "dbl_reference.cli", "--mode", "replay", "--input", str(path)],
+        [sys.executable, "-m", "ensdg.cli", "--mode", "replay", "--input", str(path)],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         env=_env_with_src_path(),
@@ -56,7 +56,7 @@ def test_replay_replay_error_has_rc_and_no_stdout(tmp_path: Path) -> None:
     path.write_text("\n".join(json.dumps(x, ensure_ascii=True) for x in rows) + "\n", encoding="utf-8")
 
     r = subprocess.run(
-        [sys.executable, "-m", "dbl_reference.cli", "--mode", "replay", "--input", str(path)],
+        [sys.executable, "-m", "ensdg.cli", "--mode", "replay", "--input", str(path)],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         env=_env_with_src_path(),
@@ -89,7 +89,7 @@ def test_replay_digest_emits_sha256_label(tmp_path: Path) -> None:
     path.write_text("\n".join(json.dumps(x, ensure_ascii=True) for x in rows) + "\n", encoding="utf-8")
 
     r = subprocess.run(
-        [sys.executable, "-m", "dbl_reference.cli", "--mode", "replay", "--input", str(path), "--digest"],
+        [sys.executable, "-m", "ensdg.cli", "--mode", "replay", "--input", str(path), "--digest"],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         env=_env_with_src_path(),
