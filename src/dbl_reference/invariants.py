@@ -32,6 +32,7 @@ def validate_stream(events: Sequence[DblEvent]) -> None:
         state = by_corr.get(e.correlation_id, CorrelationState())
 
         if e.kind == EventKind.INTENT:
+            _validate_intent_payload(e.payload, e.event_id)
             if state.saw_intent:
                 raise InvariantError(
                     f"multiple INTENT events for correlation_id; "
@@ -39,6 +40,7 @@ def validate_stream(events: Sequence[DblEvent]) -> None:
                 )
             state = CorrelationState(saw_intent=True, saw_decision=state.saw_decision)
         elif e.kind == EventKind.DECISION:
+            _validate_decision_payload(e.payload, e.event_id)
             if not state.saw_intent:
                 raise InvariantError(
                     f"DECISION observed before INTENT for correlation_id; "
@@ -59,3 +61,32 @@ def validate_stream(events: Sequence[DblEvent]) -> None:
 
         by_corr[e.correlation_id] = state
         last_event_id = e.event_id
+
+
+def _validate_intent_payload(payload: object, event_id: int) -> None:
+    if not isinstance(payload, dict):
+        raise InvariantError(f"INTENT payload must be object; event_id={event_id}")
+    if "authoritative_input" not in payload or "boundary" not in payload:
+        raise InvariantError(f"INTENT payload missing required keys; event_id={event_id}")
+    boundary = payload["boundary"]
+    if not isinstance(boundary, dict):
+        raise InvariantError(f"INTENT boundary must be object; event_id={event_id}")
+    if "boundary_config_hash" not in boundary:
+        raise InvariantError(f"INTENT boundary missing boundary_config_hash; event_id={event_id}")
+    bch = boundary["boundary_config_hash"]
+    if not isinstance(bch, str) or not bch.startswith("sha256:"):
+        raise InvariantError(f"INTENT boundary_config_hash must be sha256:; event_id={event_id}")
+
+
+def _validate_decision_payload(payload: object, event_id: int) -> None:
+    if not isinstance(payload, dict):
+        raise InvariantError(f"DECISION payload must be object; event_id={event_id}")
+    for key in ("decision", "policy_version", "authoritative_digest"):
+        if key not in payload:
+            raise InvariantError(f"DECISION payload missing {key}; event_id={event_id}")
+    pv = payload["policy_version"]
+    if isinstance(pv, bool) or not isinstance(pv, int):
+        raise InvariantError(f"DECISION policy_version must be int; event_id={event_id}")
+    ad = payload["authoritative_digest"]
+    if not isinstance(ad, str) or not ad.startswith("sha256:"):
+        raise InvariantError(f"DECISION authoritative_digest must be sha256:; event_id={event_id}")

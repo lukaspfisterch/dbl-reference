@@ -1,5 +1,29 @@
 from __future__ import annotations
 
+"""
+Normative reference runner (oracle).
+
+DblRunner is NOT:
+- a base class
+- a reusable runner abstraction
+- a production implementation
+
+DblRunner IS:
+- the minimal executable realization of DBL runner invariants
+
+It defines the LOWER BOUND of correctness for any DBL-compatible runner by enforcing:
+- append-only, ordered event sequencing
+- authoritative input isolation
+- DECISION primacy and pre-execution enforcement
+- observational non-interference
+
+Purpose:
+- Serve as a validation oracle.
+- Other runners MUST be validated against the event semantics produced here.
+- Correctness is established by invariant preservation and replay equivalence,
+  NOT by inheritance or API similarity.
+"""
+
 from dataclasses import asdict
 from typing import Any, Optional
 

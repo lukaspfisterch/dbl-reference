@@ -1,0 +1,4 @@
+{"event_id":1,"kind":"INTENT","correlation_id":"c-1","payload":{"authoritative_input":{"x":1},"boundary":{"boundary_version":1,"boundary_config_hash":"sha256:0000000000000000000000000000000000000000000000000000000000000000"}}}
+{"event_id":2,"kind":"DECISION","correlation_id":"c-1","payload":{"decision":"ALLOW","policy_version":1,"authoritative_digest":"sha256:1111111111111111111111111111111111111111111111111111111111111111","rationale":{}}}
+{"event_id":3,"kind":"EXECUTION","correlation_id":"c-1","payload":{"result":{"ok":true}}}
+{"event_id":4,"kind":"PROOF","correlation_id":"c-1","payload":{"evidence":{"p":1}}}

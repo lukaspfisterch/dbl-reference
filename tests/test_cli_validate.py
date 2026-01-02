@@ -113,9 +113,9 @@ def test_validate_mode_errors_on_replay(tmp_path: Path) -> None:
         encoding="utf-8",
         errors="replace",
     )
-    assert result.returncode == 5
+    assert result.returncode == 4
     assert result.stdout == ""
-    assert result.stderr.startswith("replay error:")
+    assert result.stderr.startswith("invariant error:")
     _assert_single_line(result.stderr)
 
 

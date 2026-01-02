@@ -21,6 +21,13 @@
 - Breaking symptom: Duplicate or non-monotonic index values.
 - Reference: D:\DEV\projects\dbl-gateway\src\dbl_gateway\store\sqlite.py
 
+## I-ORDER-1
+- Owner: dbl-reference
+- Statement: event_id is the stream order key used for validation; it MUST be strictly increasing.
+- Why it matters: Deterministic replay and v_digest depend on a total order.
+- Breaking symptom: event_id is not monotonic or is treated as a UUID.
+- Reference: D:\DEV\projects\dbl-reference\src\dbl_reference\invariants.py
+
 ## I-DECISION-1
 - Owner: dbl-gateway
 - Statement: EXECUTION is scheduled only after an ALLOW decision.

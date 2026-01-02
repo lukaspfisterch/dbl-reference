@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dbl-reference"
-version = "0.3.0"
+version = "0.3.1"
 description = "Reference-grade DBL implementation: deterministic governance over non-deterministic execution."
 readme = "README.md"
 requires-python = ">=3.10"
