@@ -1,5 +1,5 @@
 # ENSdg
-[![tests](https://github.com/lukaspfisterch/ensdg/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/lukaspfisterch/ensdg/actions/workflows/tests.yml)
+[![tests](https://github.com/lukaspfisterch/dbl-reference/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/lukaspfisterch/dbl-reference/actions/workflows/tests.yml)
 
 **Executable Authoritative Semantics for Deterministic Governance**
 
