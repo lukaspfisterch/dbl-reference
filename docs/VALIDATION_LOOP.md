@@ -7,7 +7,7 @@ Everything under test MUST export event streams in JSONL.
 
 Two commands provide feedback:
 - `validate`: hard, binary invariant check
-- `replay --digest`: stable, comparable normative digest
+- `replay --digest`: stable, comparable authoritative digest
 
 ## Three cases (minimum)
 
@@ -21,7 +21,7 @@ Learn: observational non-interference is real
 
 Case C: DECISION or policy_version changes  
 Expectation: digest changes  
-Learn: normativity is anchored in DECISION
+Learn: governance authority is anchored in DECISION
 
 ## CLI commands
 

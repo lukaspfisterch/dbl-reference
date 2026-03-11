@@ -1,10 +1,10 @@
 # ENSdg
 [![tests](https://github.com/lukaspfisterch/ensdg/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/lukaspfisterch/ensdg/actions/workflows/tests.yml)
 
-**Executable Normative Semantics for Deterministic Governance**
+**Executable Authoritative Semantics for Deterministic Governance**
 
 `ensdg` exists to make the DBL papers *executable, testable, and falsifiable*.
-It defines the **normative upper bound** of the DBL model in code.
+It defines the **authoritative upper bound** of the DBL model in code.
 ENSdg was previously developed under the working name "dbl-reference".
 The rename reflects the stabilized scope and role as a semantic anchor.
 
@@ -29,22 +29,22 @@ If another implementation disagrees with `ensdg`, **either the implementation is
 
 ---
 
-## Normative guarantees
+## Authoritative guarantees
 
-The following properties are **normative and enforced by structure and tests**:
+The following properties are **authoritative and enforced by structure and tests**:
 
 - Append-only, totally ordered event stream **V**
 - Event kinds: **INTENT**, **DECISION**, **EXECUTION**, **PROOF**
-- **DECISION primacy**: only DECISION events are normative
+- **DECISION primacy**: only DECISION events are authoritative
 - Governance consumes **authoritative inputs only**
 - **Pre-execution decision**:
   DECISION precedes EXECUTION for the same `correlation_id`
-- **Normative replay** depends exclusively on DECISION events
+- **Authoritative replay** depends exclusively on DECISION events
 - **Observational non-interference**:
-  EXECUTION and PROOF events cannot affect normative state
+  EXECUTION and PROOF events cannot affect authoritative state
 
 These guarantees correspond directly to the axioms and claims of the DBL papers.
-For the precise boundary of what is normative vs observational, see
+For the precise boundary of what is authoritative vs observational, see
 `docs\normative_bounds.md`.
 
 ---
@@ -60,7 +60,7 @@ For the precise boundary of what is normative vs observational, see
 - Production-grade persistence or scalability
 - UI, UX, or convenience abstractions
 
-Anything that introduces **implicit normativity** is explicitly out of scope.
+Anything that introduces **implicit governance authority** is explicitly out of scope.
 The `example_*` modules are test fixtures only.
 
 ---
@@ -96,7 +96,7 @@ Typical uses:
   - DECISION primacy
   - pre-execution decision ordering
   - observational non-interference
-  - normative replay equivalence
+  - authoritative replay equivalence
 - Detect semantic drift during refactors or evolution
 - Ground DBL discussions in executable semantics rather than interpretation
 
@@ -112,22 +112,22 @@ Use this repo to validate an external DBL system:
 
 1. Export the system's event stream as JSONL.
 2. Run `ensdg --mode validate` to check invariants.
-3. Run `ensdg --mode replay` to compute the normative projection.
-4. Run `ensdg --mode replay --digest` to compute the normative digest.
+3. Run `ensdg --mode replay` to compute the authoritative projection.
+4. Run `ensdg --mode replay --digest` to compute the authoritative digest.
 5. Compare projections/digests across runs to confirm stability.
 
-## CLI contract (normative)
+## CLI contract (authoritative)
 
 The CLI is a validator/oracle surface, not a runtime or integration API.
 Any deviation is a bug unless the DBL papers changed.
-InvariantError and ReplayError are normative validator errors; AdmissionRejected
-is demo-only and non-normative.
+InvariantError and ReplayError are authoritative validator errors; AdmissionRejected
+is demo-only and non-authoritative.
 
 ### Modes
 - `--mode demo`  
   Emits a minimal valid DBL event stream (JSONL).
 - `--mode replay`  
-  Emits the normative replay projection (single JSON object),
+  Emits the authoritative replay projection (single JSON object),
   unless `--digest` is set.
 - `--mode validate`  
   Emits nothing on success unless `--digest` is set.
@@ -148,7 +148,7 @@ On failure:
 
 ---
 
-## Normative replay projection
+## Authoritative replay projection
 
 Replay emits:
 
@@ -159,9 +159,9 @@ Replay emits:
 Richer projections are allowed elsewhere,
 but they MUST be reducible to this form for equivalence checks.
 
-### Normative digest
+### Authoritative digest
 
-The normative digest is computed over:
+The authoritative digest is computed over:
 
 ```json
 {
@@ -188,7 +188,7 @@ explicit changes to the DBL papers themselves.
 ### References
 
 Execution Without Normativity - A Minimal Theory of Deterministic Execution and Observation  
-https://github.com/lukaspfisterch/execution-without-normativity
+https://github.com/lukaspfisterch/execution-without-governance authority
 
 Deterministic Boundary Layers - Governing Non-Deterministic Execution  
 https://github.com/lukaspfisterch/dbl-paper

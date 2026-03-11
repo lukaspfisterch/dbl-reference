@@ -1,9 +1,9 @@
-# Normative Bounds
+# Authoritative Bounds
 
-This repository is constrained by the following normative sources and
+This repository is constrained by the following authoritative sources and
 conflict-resolution rule.
 
-## Normative hierarchy (descending authority)
+## Authoritative hierarchy (descending authority)
 
 1. DBL papers - axioms, model, terminology
 2. kernel-logic - execution substrate and primitives
@@ -24,12 +24,12 @@ Explicit rule:
 
 ## Observational non-interference
 
-- Only DECISION events are normative.
+- Only DECISION events are authoritative.
 - INTENT, EXECUTION, and PROOF are observational.
 - Observational events:
   - MUST be stored for auditability
   - MUST NOT influence replay projection
-  - MUST NOT be included in normative digest computation
+  - MUST NOT be included in authoritative digest computation
   - MAY trigger boundary violations but never governance decisions
 
 ## Authoritative input
@@ -45,7 +45,7 @@ input before any DECISION is produced.
   fields).
 - Authoritative digest: SHA256 of the admitted authoritative input that
   triggered the decision.
-- Normative digest: SHA256 of the replay projection over DECISION events only.
+- Authoritative digest: SHA256 of the replay projection over DECISION events only.
 
 ## Operational interpretation
 
@@ -64,5 +64,5 @@ Every change must state:
 2) Why the change does not violate the bounds above
 3) The minimal tests that prove the invariants still hold
 
-This document is normative. If a change conflicts with this file, the change is
+This document is authoritative. If a change conflicts with this file, the change is
 invalid by definition.

@@ -14,4 +14,4 @@ Forbidden changes:
 
 Operational rule:
 - Prefer keeping changes in dbl-main or domain runners.
-- ensdg only moves when the normative sources moved.
+- ensdg only moves when the authoritative sources moved.
